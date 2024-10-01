@@ -2,12 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.navegacion');
-    nav.classList.remove('active'); // Asegura que el menú comience cerrado
+    //nav.classList.remove('active'); // Asegura que el menú comience cerrado
 
     // Función para alternar el menú
-    window.toggleMenu = function() {
-        nav.classList.toggle('active'); // Alterna la clase 'active' para abrir/cerrar el menú
-        console.log(nav.classList); // Para depuración, puedes ver si la clase se alterna
+    window.toggleMenu = function () {
+        nav.classList.contains("active") ? (nav.classList.remove('active'), nav.classList.add('inactive')) : (nav.classList.add('active'), nav.classList.remove("start"), nav.classList.remove('inactive')); // Alterna la clase 'active' para abrir/cerrar el menú
+        //nav.classList.toggle('inactive');
+        console.log(nav.classList.contains("active")); // Para depuración, puedes ver si la clase se alterna
     };
 });
 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //La validación del formulário//
-document.querySelector('.contacto__formulario').addEventListener('submit', function(event) {
+document.querySelector('.contacto__formulario').addEventListener('submit', function (event) {
     // Prevenir el envío del formulario
     event.preventDefault();
 
@@ -49,5 +50,5 @@ document.querySelector('.contacto__formulario').addEventListener('submit', funct
 
     // Si todas las validaciones pasan, puedes enviar el formulario
     alert("Formulario enviado exitosamente.");
-    
+
 });
